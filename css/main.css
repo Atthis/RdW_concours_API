@@ -1,0 +1,347 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+}
+
+@keyframes text-appear {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes content-appear {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes svg-stroke {
+  0% {
+    stroke: white;
+    stroke-dashoffset: 50%;
+    stroke-dasharray: 0 50%;
+  }
+  100% {
+    stroke: white;
+    stroke-dashoffset: 50%;
+    stroke-dasharray: 50% 0;
+  }
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin-block: clamp(10px, 0.1vmin, 30px);
+  background-color: #030721;
+  color: white;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 1.6rem;
+}
+
+a {
+  position: relative;
+}
+a:hover {
+  color: #f06347;
+}
+
+.container {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.isHidden {
+  display: none;
+}
+
+.articles-loader img {
+  display: block;
+  margin: 30px auto;
+  width: 150px;
+}
+
+header {
+  width: 100%;
+  animation: text-appear 0.5s linear;
+}
+
+.main-nav {
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.25rem;
+}
+.main-nav h1 {
+  font-size: 5.75rem;
+  font-family: "Patua One", cursive;
+}
+.main-nav h1:hover::before {
+  background-color: #f06347;
+}
+.main-nav h1 a:hover {
+  color: inherit;
+}
+.main-nav h1 a:hover::before {
+  width: 0%;
+}
+.main-nav h1::before {
+  content: "";
+  display: inline-block;
+  height: calc(0.8 * 5.75rem);
+  width: calc(0.7 * calc(0.8 * 5.75rem));
+  margin-right: calc(0.3 * calc(0.8 * 5.75rem));
+  mask: url(../assets/icons/space-shuttle.svg);
+  -webkit-mask: url(../assets/icons/space-shuttle.svg) no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: white;
+}
+
+.hot-news {
+  position: relative;
+}
+.hot-news::before {
+  content: "";
+  display: inline-block;
+  height: 2.25rem;
+  width: calc(0.89 * 2.25rem);
+  margin-right: calc(0.3 * 2.25rem);
+  mask: url(../assets/icons/fire-alt.svg);
+  -webkit-mask: url(../assets/icons/fire-alt.svg) no-repeat;
+  mask-size: cover;
+  -webkit-mask-size: cover;
+  background-color: white;
+  transform: translateY(10%);
+}
+.hot-news:hover::before {
+  background-color: #f06347;
+}
+.hot-news.small-screens {
+  display: none;
+}
+
+@media (max-width: 940px) {
+  .main-nav {
+    display: block;
+    margin-inline: auto;
+    text-align: center;
+  }
+  .main-nav a:not(.main-title) {
+    display: inline-block;
+    margin: 0.6em 5vmin;
+  }
+  .main-nav .hot-news.large-screens {
+    display: none;
+  }
+  .main-nav .hot-news.small-screens {
+    display: inline-block;
+  }
+}
+@media (max-width: 600px) {
+  .main-nav h1 {
+    font-size: calc(0.7 * 5.75rem);
+  }
+}
+.hero {
+  padding-block: clamp(25px, 0.4vw, 50px);
+  background-image: linear-gradient(180deg, #030721 0%, rgba(15, 21, 59, 0.65) 25%, rgba(15, 21, 59, 0.65) 65%, #030721 90%), url("/assets/stars-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  text-align: center;
+}
+.hero p {
+  opacity: 0;
+  margin-block: 0.5em;
+  font-size: 3.2rem;
+  animation: text-appear 0.2s 0.3s linear forwards;
+}
+
+.space-shuttle {
+  fill: transparent;
+}
+.space-shuttle path.global-shape {
+  animation: svg-stroke 5s forwards;
+  stroke-width: 2;
+}
+.space-shuttle path.inside-lines {
+  animation: svg-stroke calc(5s/ 2) forwards;
+  animation-delay: 1s;
+  stroke-width: 1;
+}
+
+.filter-elements {
+  margin-bottom: 30px;
+}
+
+.select-container {
+  position: relative;
+  width: 250px;
+  background-color: white;
+  border: 3px solid #f06347;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+.select-container::after {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: #030721;
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+.select-container:hover {
+  cursor: pointer;
+  background-color: #f06347;
+  color: white;
+  border-color: white;
+}
+
+.news-sources {
+  padding: 5px 8px;
+}
+.news-sources:focus + .focus {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 2px solid white;
+  border-radius: inherit;
+}
+
+.selected-source-container {
+  display: flex;
+}
+.selected-source-container .selected-source {
+  border-radius: 50px;
+  background-color: #f06347;
+  color: white;
+}
+
+main {
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.article {
+  opacity: 0;
+  animation: content-appear 1s linear forwards;
+  overflow: hidden;
+  box-shadow: 0px 0px 0px 2px white;
+  display: flex;
+  flex-direction: column;
+}
+.article:hover .article-image {
+  background-color: transparent;
+  filter: grayscale(0%);
+}
+.article:hover .article-title {
+  color: #f06347;
+}
+.article .article-img-container {
+  height: 180px;
+}
+.article .article-image {
+  background-color: #030721;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  mix-blend-mode: screen;
+  transition: mix-blend-mode 0.2s linear, filter 0.2s linear;
+}
+.article .article-title {
+  font-size: 2.3rem;
+}
+.article .article-title:hover {
+  text-decoration: underline;
+}
+.article .article-sum {
+  display: none;
+}
+.article .article-infos {
+  flex-grow: 1;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.article .article-data {
+  margin-top: 1.5em;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.4rem;
+}
+.article .article-data .article-date {
+  font-style: italic;
+}
+.article .article-data .article-source {
+  color: #f06347;
+}
+
+/****/
+.spread-article {
+  grid-row: span 2;
+}
+
+.article.spread-article .article-sum {
+  display: block;
+}
+
+.article-container {
+  display: inline-block;
+  width: 30%;
+  position: relative;
+}
+.article-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #030721;
+  z-index: 2;
+  transition: background-color 0.5s;
+  mix-blend-mode: screen;
+}
+.article-container:hover::before {
+  background-color: transparent;
+}
+.article-container:hover .article-img {
+  filter: grayscale(0%);
+}
+.article-container .article-img {
+  width: 100%;
+  filter: grayscale(100%);
+  transition: filter 0.5s;
+}
+
+/*# sourceMappingURL=main.css.map */

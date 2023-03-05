@@ -1,0 +1,41 @@
+@use '../sass/abstracts';
+@use 'sass:color';
+
+@use 'composants/general-styles';
+@use 'composants/header';
+@use 'composants/hero';
+@use 'composants/source-filter';
+@use 'composants/article';
+
+.article-container {
+  $transition-duration: 0.5s;
+
+  display: inline-block;
+  width: 30%;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: abstracts.$main-bg-color;
+    z-index: 2;
+    transition: background-color $transition-duration;
+    mix-blend-mode: screen;
+  }
+
+  &:hover {
+    &::before {
+      background-color: transparent;
+    }
+    .article-img {
+      filter: grayscale(0%);
+    }
+  }
+
+  .article-img {
+    width: 100%;
+    filter: grayscale(100%);
+    transition: filter $transition-duration;
+  }
+}

@@ -1,0 +1,25 @@
+@keyframes text-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes content-appear {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes svg-stroke {
+  0% {
+    stroke: hsl(0 100% 100%);
+    stroke-dashoffset: 50%;
+    stroke-dasharray: 0 50%;
+  }
+
+  100% {
+    stroke: hsl(0 100% 100%);
+    stroke-dashoffset: 50%;
+    stroke-dasharray: 50% 0;
+  }
+}

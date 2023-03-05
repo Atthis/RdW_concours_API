@@ -1,0 +1,55 @@
+@use '../abstracts/colors' as colors;
+@use '../abstracts/font-sizes' as fonts;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  margin-block: clamp(10px, 0.1vmin, 30px);
+
+  background-color: colors.$main-bg-color;
+  color: colors.$main-light-color;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: fonts.$standard-text;
+}
+
+a {
+  position: relative;
+
+  //   &::before {
+  //     content: '';
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 0;
+  //     width: 0%;
+  //     height: 1px;
+  //     background-color: colors.$highlight-color;
+  //     transition: width 0.3s ease-out;
+  //   }
+
+  &:hover {
+    color: colors.$highlight-color;
+
+    // &::before {
+    //   width: 100%;
+    // }
+  }
+}
+
+.container {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.isHidden {
+  display: none;
+}
+
+.articles-loader {
+  img {
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+  }
+}

@@ -1,0 +1,64 @@
+@use '../abstracts/colors' as colors;
+@use '../abstracts/font-sizes' as fonts;
+
+.filter-elements {
+  margin-bottom: 30px;
+}
+
+$border-width: 3px;
+
+.select-container {
+  position: relative;
+  width: 250px;
+  background-color: colors.$main-light-color;
+  border: $border-width solid colors.$highlight-color;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+
+  &::after {
+    content: '';
+    width: 0.8em;
+    height: 0.5em;
+    // margin-right: 8px;
+    background-color: colors.$main-bg-color;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    cursor: pointer;
+    background-color: colors.$highlight-color;
+    color: colors.$main-light-color;
+    border-color: colors.$main-light-color;
+  }
+}
+
+.news-sources {
+  padding: 5px 8px;
+
+  &:focus {
+    + .focus {
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      right: -5px;
+      bottom: -5px;
+      border: 2px solid colors.$main-light-color;
+      border-radius: inherit;
+    }
+  }
+}
+
+.selected-source-container {
+  display: flex;
+
+  .selected-source {
+    border-radius: 50px;
+    background-color: colors.$highlight-color;
+    color: colors.$main-light-color;
+  }
+}

@@ -1,0 +1,104 @@
+@use '../abstracts/colors' as colors;
+@use '../abstracts/font-sizes' as fonts;
+
+header {
+  width: 100%;
+  animation: text-appear 0.5s linear;
+}
+
+.main-nav {
+  // max-width: 60%;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: fonts.$main-menu-items;
+
+  h1 {
+    font-size: fonts.$main-title;
+    font-family: 'Patua One', cursive;
+
+    &:hover {
+      &::before {
+        background-color: colors.$highlight-color;
+      }
+    }
+    a:hover {
+      color: inherit;
+
+      &::before {
+        width: 0%;
+      }
+    }
+
+    &::before {
+      content: '';
+      $height: calc(0.8 * #{fonts.$main-title});
+      display: inline-block;
+      height: $height;
+      width: calc(0.7 * #{$height});
+      margin-right: calc(0.3 * #{$height});
+      mask: url(../assets/icons/space-shuttle.svg);
+      -webkit-mask: url(../assets/icons/space-shuttle.svg) no-repeat;
+      mask-size: cover;
+      -webkit-mask-size: cover;
+      background-color: colors.$main-light-color;
+    }
+  }
+}
+
+.hot-news {
+  position: relative;
+  &::before {
+    content: '';
+    $height: fonts.$main-menu-items;
+    display: inline-block;
+    height: $height;
+    width: calc(0.89 * #{$height});
+    margin-right: calc(0.3 * #{$height});
+    mask: url(../assets/icons/fire-alt.svg);
+    -webkit-mask: url(../assets/icons/fire-alt.svg) no-repeat;
+    mask-size: cover;
+    -webkit-mask-size: cover;
+    background-color: colors.$main-light-color;
+    transform: translateY(10%);
+  }
+
+  &:hover::before {
+    background-color: colors.$highlight-color;
+  }
+
+  &.small-screens {
+    display: none;
+  }
+}
+
+@media (max-width: 940px) {
+  .main-nav {
+    display: block;
+    margin-inline: auto;
+    text-align: center;
+
+    a:not(.main-title) {
+      display: inline-block;
+      margin: 0.6em 5vmin;
+    }
+
+    .hot-news {
+      &.large-screens {
+        display: none;
+      }
+
+      &.small-screens {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .main-nav h1 {
+    font-size: calc(0.7 * #{fonts.$main-title});
+  }
+}

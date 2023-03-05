@@ -1,0 +1,45 @@
+@use '../abstracts/colors' as colors;
+@use '../abstracts/font-sizes' as fonts;
+@use '../abstracts/animations' as animations;
+
+.hero {
+  padding-block: clamp(25px, 0.4vw, 50px);
+
+  background-image: linear-gradient(
+      180deg,
+      #030721 0%,
+      rgba(15, 21, 59, 0.65) 25%,
+      rgba(15, 21, 59, 0.65) 65%,
+      #030721 90%
+    ),
+    url('/assets/stars-bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  text-align: center;
+
+  p {
+    opacity: 0;
+    margin-block: 0.5em;
+
+    font-size: fonts.$headline;
+
+    animation: text-appear 0.2s 0.3s linear forwards;
+  }
+}
+
+.space-shuttle {
+  $main-svg-animation-duration: 5s;
+  fill: transparent;
+
+  path.global-shape {
+    animation: svg-stroke $main-svg-animation-duration forwards;
+    stroke-width: 2;
+  }
+
+  path.inside-lines {
+    animation: svg-stroke calc(#{$main-svg-animation-duration}/ 2) forwards;
+    animation-delay: 1s;
+    stroke-width: 1;
+  }
+}
