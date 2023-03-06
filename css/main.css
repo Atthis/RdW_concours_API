@@ -280,12 +280,6 @@ main {
   mix-blend-mode: screen;
   transition: mix-blend-mode 0.2s linear, filter 0.2s linear;
 }
-.article .article-title {
-  font-size: 2.3rem;
-}
-.article .article-title:hover {
-  text-decoration: underline;
-}
 .article .article-sum {
   display: none;
 }
@@ -295,6 +289,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.article .article-title {
+  font-size: 2.3rem;
+}
+.article .article-title:hover {
+  text-decoration: underline;
 }
 .article .article-data {
   margin-top: 1.5em;

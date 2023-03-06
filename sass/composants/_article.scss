@@ -45,14 +45,6 @@ main {
       filter $transition-duration linear;
   }
 
-  .article-title {
-    font-size: fonts.$article-title;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
   .article-sum {
     display: none;
   }
@@ -63,6 +55,14 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  .article-title {
+    font-size: fonts.$article-title;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .article-data {

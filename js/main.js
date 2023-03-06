@@ -35,19 +35,17 @@ function createDOMArticle(article, fragment) {
   )}/${article.publishedAt.slice(5, 7)}/${article.publishedAt.slice(0, 4)}`;
 
   articleContainer.innerHTML = `
-              <section class="article-img-container">
-                  <img src="${article.imageUrl}" alt="" class="article-image">
-                  </section>
-                  <section class="article-infos">
-                      <h1 class="article-title"><a href="${article.url}" target="_blank">${article.title}</a></h1>
-                      <div class="article-data">
-                          <p class="article-date">${publishedDate}</p>
-                          <p class="article-source">${article.newsSite}</p>
-                      </div>
-                      <p class="article-sum">${article.summary}</p>
-                  </section>
-                  <section >
-                  </section>
+      <section class="article-img-container">
+          <img src="${article.imageUrl}" alt="" class="article-image">
+      </section>
+      <section class="article-infos">
+          <h1 class="article-title"><a href="${article.url}" target="_blank">${article.title}</a></h1>
+          <div class="article-data">
+              <p class="article-date">${publishedDate}</p>
+              <p class="article-source">${article.newsSite}</p>
+          </div>
+          <p class="article-sum">${article.summary}</p>
+      </section>
     `;
 
   // Add summary display on click
